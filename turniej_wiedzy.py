@@ -50,11 +50,11 @@ def main():
     score = 0
 
 # pobierz pierwszy blok
-category, question, answers, correct, explanation = next_block(trivia_file)
-while category:
+    category, question, answers, correct, explanation = next_block(trivia_file)
+    while category:
     # zadaj pytanie
-    print (category)
-    print (question)
+        print (category)
+        print (question)
     for i in range(4):
         print ('\t', i + 1, '-', answers[i])
     # uzyskaj odpowiedz
@@ -72,8 +72,8 @@ while category:
 
     trivia_file.close()
 
-print('To bylo ostatnie pytanie!')
-print('Twoj koncowy wynik wynosi:', score)
+    print('To bylo ostatnie pytanie!')
+    print('Twoj koncowy wynik wynosi:', score)
 
 main()
 input('Aby zakonczyc wcisnij Enter.')
