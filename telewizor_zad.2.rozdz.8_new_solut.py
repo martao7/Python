@@ -52,7 +52,7 @@ def main():
             # wprowadz kanal programu
             elif choice == '1':
                 try:
-                    zmiana = int(input('Wprowadz numer kanalu: 1-25'))
+                    zmiana = int(input('Wprowadz numer kanalu (1 - 25) :'))
                     crit.canal(zmiana)
                 except:
                     print ('niepoprawny numer kanalu.')
