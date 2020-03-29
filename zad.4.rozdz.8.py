@@ -22,16 +22,10 @@ class Critter(object):
         self.hunger = hunger
         self.boredom = boredom
 
-    def __str__(self):
-        rep = 'zwierzak'
-        rep = 'name: ' + self.name + '\n'
-        return rep
-
     def __pass_time(self):
         self.hunger += 1
         self.boredom += 1
 
-    @property
     def mood(self):
         unhappiness = self.boredom
         self.unhappiness = unhappiness
@@ -48,7 +42,6 @@ class Critter(object):
 
     def poziom_glodu (self):
         poziom_glodu = self.hunger
-        self.poziom_glodu = poziom_glodu
         if poziom_glodu < 5:
             s = 'najedzony'
         elif 5 <= poziom_glodu <= 10:
@@ -61,33 +54,32 @@ class Critter(object):
         return s
 
     def talk(self):
-        print ('Nazywam sie', self.name, 'i jestem', self.mood)
-        print ('i', self.poziom_glodu, 'teraz.\n')
+
+        print ('Nazywam sie', self.name, 'i jestem', self.mood())
+        print ('i', self.poziom_glodu(), 'teraz.\n')
+
+
+    def eat(self):
+        food = int(input('ile porcji jedzenia chcesz dac (1-4) ?  '))
+        if food > 4:
+            print (self.name, 'mowi: nie jestem w stanie tyle zjesc!')
+        else:
+            print(self.name, 'mowi: Mniam, mniam. Thanks.')
+            self.hunger -= food
+            if self.hunger < 0:
+                self.hunger = 0
         self.__pass_time()
 
-    def eat(self, food = 4):
-        while food < 4:
-            food = int(input('ile porcji jedzenia chcesz dac (1-4) ?  '))
-            if food > 4:
-                print (self.name, 'mowi: nie jestem w stanie tyle zjesc!')
-            else:
-                print(self.name, 'mowi: Mniam, mniam. Thanks.')
-                self.hunger -= food
-                if self.hunger < 0:
-                      self.hunger = 0
-                self.__pass_time()
-
-    def play(self, fun = 4):
-        while fun < 4:
-            fun = int(input('ile godzin sie z nami pobawisz (1-4) ?'))
-            if fun > 4:
-                print (self.name, 'mowi: na to jestem zbyt zmeczony!')
-            else:
-                print(self.name, 'mowi: Wow, ale fun!')
-                self.boredom -= fun
-                if self.boredom < 0:
-                      self.boredom = 0
-                self.__pass_time()
+    def play(self):
+        fun = int(input('ile godzin sie z nami pobawisz (1-4) ?'))
+        if fun > 4:
+            print (self.name, 'mowi: na to jestem zbyt zmeczony!')
+        else:
+            print(self.name, 'mowi: Wow, ale fun!')
+            self.boredom -= fun
+            if self.boredom < 0:
+                self.boredom = 0
+        self.__pass_time()
 def main():
     crit1_name = input ('Jak nazwiesz pierwszego zwierzaka?')
     crit1 = Critter(crit1_name)
