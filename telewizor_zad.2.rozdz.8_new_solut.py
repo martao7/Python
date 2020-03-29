@@ -8,8 +8,8 @@
 
 class Telewizor(object):
     '''Twoj telewizor'''
-    def __init__(self, canal = 1,  sound = 15):
-        self.canal = canal
+    def __init__(self, new_canal = 1,  sound = 15):
+        self.new_canal = new_canal
         self.__sound = sound
 
     def canal(self, zmiana):
