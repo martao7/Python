@@ -25,6 +25,10 @@ Wyjście:
 5 0
 '''
 
+''' 
+----zadanie nierozwiazane----
+'''
+
 def szukaj_palindromu(numbers):
     sum = 0
     sum += int(numbers)
@@ -42,7 +46,6 @@ for i in range(numbers):
         print('Palindrom dla {}:'.format(i), szukaj_palindromu(i))
     else:
         print('Nie istnieje palindrom dla {}'.format(i))
-
 
 
 
