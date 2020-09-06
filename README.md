@@ -1,3 +1,3 @@
 # Python_exercises
 
-homeworks from a book 'python_dla_kazdego'm.dawson
+homeworks from the book 'Python_dla_kazdego' M.Dawson
